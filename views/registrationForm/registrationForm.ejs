@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="css/registrationForm/registrationForm.css">
+
+</head>
+
+<body>
+  <section class="registrationForm__section">
+    <div class="container">
+      <form id="registrationForm" name="registrationForm">
+        <p>Registration Form</p>
+        <div class="formInput">
+          <label for="firstName">FirstName
+            <input type="text" id="firstName" name="firstName">
+          </label>
+          <label for="lastName">LastName
+            <input type="text" id="lastName" name="lastName">
+          </label>
+          <label for="email">Email
+            <input type="text" id="email" name="email">
+          </label>
+          <label for="phoneNumber">PhoneNumber
+            <input type="text" id="phoneNumber" name="phoneNumber">
+          </label>
+          <div class="button__div">
+            <!-- <input type="submit" id="submitButton" class="registrationFormButton" value="submit"> -->
+            <p class="registrationFormButton" onclick="registration()">submit</p>
+            <input type="reset" value="Reset" class="registrationFormButton">
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <script type="text/javascript" src="js/registrationForm/registrationForm.js"></script>
+  <script type="text/javascript" src="js/registrationForm/registrationFormValidation.js"></script>
+</body>
+
+</html>
