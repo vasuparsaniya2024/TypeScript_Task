@@ -1,5 +1,8 @@
 "use strict";
-function registrationFormValidation(data) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.registrationFormValidation = void 0;
+function registrationFormValidation(req, res, next) {
+    const data = req.body;
     const errorObject = {};
     for (let key in data) {
         switch (key) {
@@ -51,5 +54,11 @@ function registrationFormValidation(data) {
                 break;
         }
     }
-    return errorObject;
+    if (Object.keys(errorObject).length > 0) {
+        return res.status(400).json(errorObject);
+    }
+    else {
+        next();
+    }
 }
+exports.registrationFormValidation = registrationFormValidation;

@@ -32,7 +32,7 @@ const logger = pino({
 function logError(err:any) {
   const error = err instanceof Error ? err : new Error(err);
   const stack = error.stack?.split('\n');
-  const callerStackLine = stack ? stack[1] : ""; // Extract the line of the stack trace where the logging function is called
+  const callerStackLine = stack ? stack[2] : ""; // Extract the line of the stack trace where the logging function is called
   console.log(callerStackLine);
   const fileMatch = callerStackLine.match(/\(([^)]+)\)/); // Extract the file name from the stack trace
   const fileName = fileMatch ? fileMatch[1] : 'Unknown file'; // Get the file name or use a default value if not found

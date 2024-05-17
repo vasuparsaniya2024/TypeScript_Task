@@ -1,12 +1,7 @@
-interface FormData{
-  firstName:string,
-  lastName:string,
-  email:string,
-  phoneNumber:number
-}
+import { Request,Response,NextFunction } from "express";
 
-
-function registrationFormValidation(data:{[index:string]:string}){
+function registrationFormValidation(req:Request,res:Response,next:NextFunction){
+  const data = req.body;
   const errorObject:{[index:string]:string} = {};
   for(let key in data){
     switch(key){
@@ -52,5 +47,12 @@ function registrationFormValidation(data:{[index:string]:string}){
               break;
     }
   }
-  return errorObject;
+
+  if(Object.keys(errorObject).length > 0){
+    return res.status(400).json(errorObject);
+  }else{
+    next();
+  }
 }
+
+export {registrationFormValidation};
