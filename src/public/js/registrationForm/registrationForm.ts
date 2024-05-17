@@ -39,7 +39,6 @@ async function registrationFormSubmit(data:{[index:string]:string}){
     }
 
     if(response.status === 200){
-      console.log(responseMessage.message);
       resetRegistrationForm();
       messagePopUp(responseMessage.message);
     }

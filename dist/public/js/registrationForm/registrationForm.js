@@ -46,7 +46,6 @@ function registrationFormSubmit(data) {
                 throw new Error("Form Submit Error");
             }
             if (response.status === 200) {
-                console.log(responseMessage.message);
                 resetRegistrationForm();
                 messagePopUp(responseMessage.message);
             }

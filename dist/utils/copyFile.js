@@ -25,7 +25,7 @@ function copyResources() {
             logs_1.logger.info("Copy");
         }
         catch (err) {
-            (0, logs_1.logError)("Copy Folder Error " + err);
+            (0, logs_1.logError)("Copy Folder Error found " + err);
         }
     });
 }

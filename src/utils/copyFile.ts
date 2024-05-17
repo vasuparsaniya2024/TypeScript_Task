@@ -10,7 +10,7 @@ async function copyResources():Promise<void> {
     await fs.copy(`${srcDir}`,`${destDir}`);
     logger.info("Copy");
   }catch(err){
-    logError("Copy Folder Error "+err);
+    logError("Copy Folder Error found "+err);
   }
 }
 
