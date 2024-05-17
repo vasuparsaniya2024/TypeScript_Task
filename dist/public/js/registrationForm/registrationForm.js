@@ -1,4 +1,10 @@
 "use strict";
+// interface FormData{
+//   firstName:string,
+//   lastName:string,
+//   email:string,
+//   phoneNumber:number
+// }
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -11,10 +17,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 function registration() {
     const registration = document.getElementById("registrationForm");
     const formData = new FormData(registration);
-    // console.log(formData);
     const formDataObject = {};
     // const formDataObject:FormData = {};
     for (let [key, value] of formData.entries()) {
+        // in this we need to casting because formdata we also get File type so this our object only take string as value
         formDataObject[key] = value;
     }
     const errorObject = registrationFormValidation(formDataObject);

@@ -496,3 +496,33 @@
 [11:07:22.760] INFO (20113): Server Listen At 8000
 [11:07:36.537] INFO (20221): Server Listen At 8000
 [11:08:29.688] INFO (20314): Server Listen At 8000
+[11:22:20.076] INFO (21253): Server Listen At 8000
+[11:27:41.647] INFO (21700): Server Listen At 8000
+[11:29:03.897] INFO (21805): Server Listen At 8000
+[11:29:08.518] INFO (21861): Server Listen At 8000
+[11:29:34.994] ERROR (21861):
+    file: "Unknown file"
+    error: "Duplicate entry 'admin@gmail.com' for key 'registration.email_UNIQUE'"
+[11:34:46.965] INFO (22056): Server Listen At 8000
+[11:34:56.459] INFO (22155): Server Listen At 8000
+[11:36:53.733] INFO (22283): Server Listen At 8000
+[11:37:14.213] INFO (22416): Server Listen At 8000
+[11:37:23.189] INFO (22523): Server Listen At 8000
+[11:37:50.204] INFO (22624): Server Listen At 8000
+[11:38:03.536] INFO (22738): Server Listen At 8000
+[11:38:12.623] INFO (22846): Server Listen At 8000
+[11:38:25.178] INFO (22950): Server Listen At 8000
+[11:38:26.555] INFO (23026): Server Listen At 8000
+[11:43:24.346] INFO (23394): Server Listen At 8000
+[11:43:24.982] INFO (23463): Server Listen At 8000
+[11:43:28.497] INFO (23519): Server Listen At 8000
+[11:43:32.847] INFO (23574): Server Listen At 8000
+[11:43:33.388] INFO (23634): Server Listen At 8000
+[11:44:36.388] INFO (23762): Server Listen At 8000
+[11:46:37.844] INFO (24043): Server Listen At 8000
+[11:46:43.001] INFO (24102): Server Listen At 8000
+[11:47:10.999] INFO (24197): Server Listen At 8000
+[11:47:21.985] INFO (24286): Server Listen At 8000
+[11:47:24.532] INFO (24342): Server Listen At 8000
+[11:49:06.063] INFO (24421): Server Listen At 8000
+[11:55:29.952] INFO (24805): Server Listen At 8000

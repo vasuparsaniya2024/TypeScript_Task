@@ -44,7 +44,7 @@ function registrationFormValidation(data:{[index:string]:string}){
             case "phoneNumber":
               if(!data[key]){
                 errorObject.phoneNumber = "* require";
-              }else if((isNaN(data[key]) || data[key].length !== 10 || data[key].trim().length === 0 || data[key].charAt(0) === "0") && data[key] !== ""){
+              }else if((isNaN(Number(data[key])) || data[key].length !== 10 || data[key].trim().length === 0 || data[key].charAt(0) === "0") && data[key] !== ""){
                 errorObject.phoneNumber = "* Please Enter Valid Phonenumber";
               }else{
                 delete errorObject.phoneNumber;

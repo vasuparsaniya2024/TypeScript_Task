@@ -1,19 +1,19 @@
-interface FormData{
-  firstName:string,
-  lastName:string,
-  email:string,
-  phoneNumber:number
-}
+// interface FormData{
+//   firstName:string,
+//   lastName:string,
+//   email:string,
+//   phoneNumber:number
+// }
 
 function registration():void{
   const registration = document.getElementById("registrationForm") as HTMLFormElement;
   const formData = new FormData(registration);
-  // console.log(formData);
 
   const formDataObject:{[index:string]:string} = {};
   // const formDataObject:FormData = {};
   for(let [key,value] of formData.entries()){
-    formDataObject[key] = value;
+    // in this we need to casting because formdata we also get File type so this our object only take string as value
+    formDataObject[key] = value as string;  
   }
     const errorObject:{[index:string]:string} = registrationFormValidation(formDataObject);
     if(Object.keys(errorObject).length > 0){
