@@ -4,7 +4,8 @@ import bodyParser  from 'body-parser';
 import path from 'path';
 import {logger,logError} from './logs';
 import router from './routes/route';
-
+import copyResources from './utils/copyFile';
+// import db from './models';
 const app:Application = express();
 
 app.use(bodyParser.json());
@@ -20,15 +21,26 @@ app.set('view engine', 'ejs');
 //middleware 
 app.use(express.static(path.join(__dirname, 'public')));
 
+copyResources();
 app.use(router);
- 
-app.listen(process.env.PORT, () => {
-  try {
-    logger.info("Server Listen At " + process.env.PORT);
-  } catch (err) {
-    logError("Server Lister Error " + err);
-  }
-});
+
+// db.sequelize.then((req:Request)=>{
+//   app.listen(process.env.PORT, () => {
+//     try {
+//       logger.info("Server Listen At " + process.env.PORT);
+//     } catch (err) {
+//       logError("Server Lister Error " + err);
+//     }
+//   });
+// });
+
+  app.listen(process.env.PORT, () => {
+    try {
+      logger.info("Server Listen At " + process.env.PORT);
+    } catch (err) {
+      logError("Server Lister Error " + err);
+    }
+  });
 
 app.use("*", (req:Request, res:Response) => {
   return res.send("Router Not Found");

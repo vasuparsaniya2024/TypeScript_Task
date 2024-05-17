@@ -12,17 +12,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.registrationFormService = void 0;
-const connection_1 = __importDefault(require("../../config/connection"));
-function registrationFormService(data) {
+const fs_extra_1 = __importDefault(require("fs-extra"));
+const path_1 = __importDefault(require("path"));
+const logs_1 = require("../logs");
+function copyResources() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const insertQuery = `INSERT INTO registration(first_name,last_name,email,phone_number) VALUES(?,?,?,?)`;
-            const [result] = yield connection_1.default.execute(insertQuery, [data.firstName, data.lastName, data.email, data.phoneNumber]);
+            // const srcDir:string = path.join(__dirname,"../public/assets");
+            const srcDir = path_1.default.join(__dirname, "../../src/public/assets");
+            const destDir = path_1.default.join(__dirname, "../../dist/public/assets");
+            yield fs_extra_1.default.copy(`${srcDir}`, `${destDir}`);
+            logs_1.logger.info("Copy");
         }
         catch (err) {
-            throw err;
+            (0, logs_1.logError)("Copy Folder Error " + err);
         }
     });
 }
-exports.registrationFormService = registrationFormService;
+copyResources();
+exports.default = copyResources;

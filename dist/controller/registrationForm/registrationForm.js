@@ -8,10 +8,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.registrationFormSubmit = exports.registrationForm = void 0;
 const logs_1 = require("../../logs");
-const registrationForm_1 = require("../../service/registrationForm/registrationForm");
+const db_1 = __importDefault(require("../../models/db"));
+const Registration_1 = __importDefault(require("../../models/Registration"));
 function registrationForm(req, res) {
     return res.render('registrationForm/registrationForm');
 }
@@ -21,7 +25,13 @@ function registrationFormSubmit(req, res) {
         try {
             // console.log(req.body);
             const data = req.body;
-            yield (0, registrationForm_1.registrationFormService)(data);
+            yield db_1.default.sync();
+            yield Registration_1.default.create({
+                first_name: data.firstName,
+                last_name: data.lastName,
+                email: data.email,
+                phone_number: data.phoneNumber
+            });
             return res.status(200).json({ message: "Thank For Submit Form" });
         }
         catch (err) {

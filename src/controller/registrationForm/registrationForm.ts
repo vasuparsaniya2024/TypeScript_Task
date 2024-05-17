@@ -1,7 +1,8 @@
 import {Request,Response} from 'express';
 import {logger,logError} from '../../logs';
 
-import {registrationFormService} from '../../service/registrationForm/registrationForm';
+import sequelize from '../../models/db';
+import registration from '../../models/Registration';
 
 function registrationForm(req:Request,res:Response){
     return res.render('registrationForm/registrationForm');
@@ -11,7 +12,15 @@ async function registrationFormSubmit(req:Request,res:Response){
   try{
     // console.log(req.body);
     const data = req.body;
-    await registrationFormService(data);
+
+    await sequelize.sync();
+
+    await registration.create({
+      first_name:data.firstName,
+      last_name:data.lastName,
+      email:data.email,
+      phone_number:data.phoneNumber      
+    });
     return res.status(200).json({message:"Thank For Submit Form"});
   }catch(err){
     logError(err);
