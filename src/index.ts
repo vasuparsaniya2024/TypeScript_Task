@@ -4,6 +4,7 @@ import bodyParser  from 'body-parser';
 import path from 'path';
 import {logger,logError} from './logs';
 import router from './routes/route';
+import copyResources from './utils/copyFile';
 
 const app:Application = express();
 
@@ -19,6 +20,8 @@ app.set('view engine', 'ejs');
 
 //middleware 
 app.use(express.static(path.join(__dirname, 'public')));
+
+copyResources();
 
 app.use(router);
  
